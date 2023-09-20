@@ -18,10 +18,8 @@ bufferline.setup {
         icon ="|",
     },
     buffer_close_icon = "",
-    -- buffer_close_icon = '',
     modified_icon = "●",
     close_icon = "",
-    -- close_icon = '',
     left_trunc_marker = "",
     right_trunc_marker = "",
     --- name_formatter can be used to change the buffer's label in the bufferline.
@@ -76,80 +74,75 @@ bufferline.setup {
   },
   highlights = {
     fill = {
-      fg = { attribute = "fg", highlight = "#ff0000" },
-      bg = { attribute = "bg", highlight = "TabLine" },
+      fg = { attribute = "fg", highlight = "ff0000" },
+      bg = { attribute = "bg", highlight = "TabLine" }
     },
     background = {
       fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
+      bg = { attribute = "bg", highlight = "TabLine" }
     },
     buffer_visible = {
       fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
+      bg = { attribute = "bg", highlight = "TabLine" }
     },
-
     close_button = {
       fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
+      bg = { attribute = "bg", highlight = "TabLine" }
     },
     close_button_visible = {
       fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
+      bg = { attribute = "bg", highlight = "TabLine" }
     },
-
     tab_selected = {
       fg = { attribute = "fg", highlight = "Normal" },
-      bg = { attribute = "bg", highlight = "Normal" },
+      bg = { attribute = "bg", highlight = "Normal" }
     },
     tab = {
       fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
+      bg = { attribute = "bg", highlight = "TabLine" }
     },
     tab_close = {
       fg = { attribute = "fg", highlight = "TabLineSel" },
-      bg = { attribute = "bg", highlight = "Normal" },
+      bg = { attribute = "bg", highlight = "Normal" }
     },
-
     duplicate_selected = {
       fg = { attribute = "fg", highlight = "TabLineSel" },
       bg = { attribute = "bg", highlight = "TabLineSel" },
-      italic = true,
+      italic = true
     },
     duplicate_visible = {
       fg = { attribute = "fg", highlight = "TabLine" },
       bg = { attribute = "bg", highlight = "TabLine" },
-      italic = true,
+      italic = true
     },
     duplicate = {
       fg = { attribute = "fg", highlight = "TabLine" },
       bg = { attribute = "bg", highlight = "TabLine" },
-      italic = true,
+      italic = true
     },
-
     modified = {
       fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
+      bg = { attribute = "bg", highlight = "TabLine" }
     },
     modified_selected = {
       fg = { attribute = "fg", highlight = "Normal" },
-      bg = { attribute = "bg", highlight = "Normal" },
+      bg = { attribute = "bg", highlight = "Normal" }
     },
     modified_visible = {
       fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
+      bg = { attribute = "bg", highlight = "TabLine" }
     },
-
     separator = {
       fg = { attribute = "bg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
+      bg = { attribute = "bg", highlight = "TabLine" }
     },
     separator_selected = {
       fg = { attribute = "bg", highlight = "Normal" },
-      bg = { attribute = "bg", highlight = "Normal" },
+      bg = { attribute = "bg", highlight = "Normal" }
     },
     indicator_selected = {
       fg = { attribute = "fg", highlight = "LspDiagnosticsDefaultHint" },
-      bg = { attribute = "bg", highlight = "Normal" },
-    },
-  },
+      bg = { attribute = "bg", highlight = "Normal" }
+    }
+  }
 }

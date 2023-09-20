@@ -64,7 +64,7 @@ require'lspconfig'.html.setup{ -- html lsp
     on_attach = on_attach,
     capabilities = capabilities
 }
-require'lspconfig'.sumneko_lua.setup{ -- html lsp
+require'lspconfig'.lua_ls.setup{ -- html lsp
     on_attach = on_attach,
     capabilities = capabilities
 }
@@ -73,6 +73,11 @@ require'lspconfig'.tsserver.setup{ -- typescript lsp
     capabilities = capabilities,
 }
 require'lspconfig'.jsonls.setup{ -- json lsp
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+
+require'lspconfig'.gdscript.setup{
     on_attach = on_attach,
     capabilities = capabilities
 }

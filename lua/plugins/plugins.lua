@@ -74,5 +74,5 @@ return require('packer').startup(function(use)
         use 'kyazdani42/nvim-web-devicons'
 
     -- godot
-        -- use 'habamax/vim-godot'
+        use 'habamax/vim-godot'
 end)
