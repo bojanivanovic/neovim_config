@@ -54,8 +54,8 @@ map('n', '<Leader>h', ':nohlsearch<CR>', opts)
 ------------------------------------------------------------------------
 
 -- fterm
-map('n', '<C-`>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
-map('t', '<C-`>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
+map('n', '<C-t>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
+map('t', '<C-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
 
 --  tagbar
 map('n', '<F8>', ':TagbarToggle<CR>', opts)

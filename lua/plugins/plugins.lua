@@ -13,6 +13,7 @@ return require('packer').startup(function(use)
         use 'folke/tokyonight.nvim'
         use 'rebelot/kanagawa.nvim'
         use 'sainnhe/everforest'
+        use 'catppuccin/nvim'
 
     -- file explorer
 
@@ -72,6 +73,9 @@ return require('packer').startup(function(use)
     -- formatting
     -- icons
         use 'kyazdani42/nvim-web-devicons'
+
+    -- tmux
+        use 'christoomey/vim-tmux-navigator'
 
     -- godot
         use 'habamax/vim-godot'

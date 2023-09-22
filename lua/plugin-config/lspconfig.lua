@@ -66,7 +66,17 @@ require'lspconfig'.html.setup{ -- html lsp
 }
 require'lspconfig'.lua_ls.setup{ -- html lsp
     on_attach = on_attach,
-    capabilities = capabilities
+    capabilities = capabilities,
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = {
+                    'vim',
+                    'require'
+                }
+            }
+        }
+    }
 }
 require'lspconfig'.tsserver.setup{ -- typescript lsp
     on_attach = on_attach,
@@ -76,8 +86,23 @@ require'lspconfig'.jsonls.setup{ -- json lsp
     on_attach = on_attach,
     capabilities = capabilities
 }
-
 require'lspconfig'.gdscript.setup{
     on_attach = on_attach,
+    capabilities = capabilities
+}
+require'lspconfig'.pylsp.setup{
+    settings = {
+        pylsp = {
+            plugins = {
+                pycodestyle = {
+                    ignore = {'W391'},
+                    maxLineLength = 120
+                }
+            }
+        }
+    }
+}
+require'lspconfig'.rust_analyzer.setup{
+    on_attach= on_attach,
     capabilities = capabilities
 }
