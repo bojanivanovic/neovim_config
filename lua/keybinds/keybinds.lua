@@ -3,10 +3,11 @@ local opts = { noremap = true, silent = true }
 
 map('', '<Space>', '<Nop>', opts)
 vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
-map('n', 'Q', ':wqa<CR>', opts)
-map('n', 's', ':w<CR>', opts)
-map('n', 'S', ':wa<CR>', opts)
+--map('n', 'Q', ':wqa<CR>', opts)
+--map('n', 's', ':w<CR>', opts)
+--map('n', 'S', ':wa<CR>', opts)
 
 -- switch between windows
 -- map('n', '<C-h>', '<C-w>h', opts)
@@ -47,7 +48,13 @@ map('x', '<A-k>', ":m '<-2<CR>gv=gv", opts)
 map('v', 'p', '"_dP', opts)
 
 -- misc
-map('n', '<Leader>h', ':nohlsearch<CR>', opts)
+map('n', '<ESC>', ':nohlsearch<CR>', opts)
+
+-- diagnostics
+map('n', '[d', ':lua vim.diagnostic.goto_prev()<CR>', { desc = 'Go to previous [D]iagnostics message.' })
+map('n', ']d', ':lua vim.diagnostic.goto_next()<CR>', { desc = 'Go to next [D]iagnostics message.' })
+map('n', '<leader>e', ':lua vim.diagnostic.open_float()<CR>', { desc = 'Show diagnostic [E]rror message.' })
+map('n', '<leader>q', ':lua vim.diagnostic.setloclist()<CR>', { desc = 'Open disagnostic [Q]' })
 
 ------------------------------------------------------------------------
 -- Plugins --
@@ -61,20 +68,51 @@ map('t', '<C-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
 map('n', '<F8>', ':TagbarToggle<CR>', opts)
 
 -- telescope
-map('n', '<Leader>s', "<cmd>lua require('telescope.builtin').find_files()<CR>", opts)
-map('n', '<Leader>tg', "<cmd>lua require('telescope.builtin').live_grep()<CR>", opts)
-map('n', '<Leader>b', "<cmd>lua require('telescope.builtin').buffers()<CR>", opts)
-map('n', '<Leader>th', "<cmd>lua require('telescope.builtin').help_tags()<CR>", opts)
-map('n', '<Leader>tr', "<cmd>lua require('telescope.builtin').lsp_references()<CR>", opts)
-map('n', '<Leader>td', "<cmd>lua require('telescope.builtin').diagnostics()<CR>", opts)
-map('n', '<Leader>ti', "<cmd>lua require('telescope.builtin').lsp_implementations()<CR>", opts)
+map('n', '<Leader>sf', "<cmd>lua require('telescope.builtin').find_files()<CR>", opts)
+map('n', '<Leader>sg', "<cmd>lua require('telescope.builtin').live_grep()<CR>", opts)
+map('n', '<Leader>sb', "<cmd>lua require('telescope.builtin').buffers()<CR>", opts)
+map('n', '<Leader>sh', "<cmd>lua require('telescope.builtin').help_tags()<CR>", opts)
+map('n', '<Leader>sr', "<cmd>lua require('telescope.builtin').lsp_references()<CR>", opts)
+map('n', '<Leader>sd', "<cmd>lua require('telescope.builtin').diagnostics()<CR>", opts)
+map('n', '<Leader>si', "<cmd>lua require('telescope.builtin').lsp_implementations()<CR>", opts)
+map('n', '<Leader>sw', "<cmd>lua require('telescope.builtin').grep_string()<CR>", opts)
+map('n', '<Leader>s.', "<cmd>lua require('telescope.builtin').oldfiles()<CR>", opts)
+map('n', '<Leader>sn', "<cmd>lua require('telescope.builtin').find_files({ cwd = vim.fn.stdpath 'config' })<CR>", opts)
+vim.keymap.set('n', '<Leader>sk', function() require('telescope.builtin').keymaps() end) -- should redo the whole file in this way
 map('n',
-    '<C-/>',
-    "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find({ sorting_strategy=ascending })<CR>",
+    '<C-_>',
+    "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown{ windblend = 10, previewer = false })<CR>",
     opts)
 
 -- lazygit
-map('n', '<Leader>gg', "<cmd>LazyGit<CR>", opts)
+map('n', '<Leader>lg', "<cmd>LazyGit<CR>", opts)
+
+-- DAP
+
+vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
+vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
+vim.keymap.set('n', '<F11>', function() require('dap').step_into() end)
+vim.keymap.set('n', '<F12>', function() require('dap').step_out() end)
+vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() end)
+vim.keymap.set('n', '<Leader>B', function() require('dap').set_breakpoint() end)
+vim.keymap.set({ 'n', 'v' }, '<Leader>dh', function()
+    require('dap.ui.widgets').hover()
+end)
+vim.keymap.set({ 'n', 'v' }, '<Leader>dp', function()
+    require('dap.ui.widgets').preview()
+end)
+vim.keymap.set('n', '<Leader>df', function()
+    local widgets = require('dap.ui.widgets')
+    widgets.centered_float(widgets.frames)
+end)
+vim.keymap.set('n', '<Leader>ds', function()
+    local widgets = require('dap.ui.widgets')
+    widgets.centered_float(widgets.scopes)
+end)
+
+-- DAP UI
+vim.keymap.set('n', '<leader>du', function() require('dapui').open() end)
+vim.keymap.set('n', '<leader>dU', function() require('dapui').close() end)
 
 -----------------------------------
 -- plugin files with local keybinds

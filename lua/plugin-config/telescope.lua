@@ -7,6 +7,13 @@ local actions = require "telescope.actions"
 
 telescope.setup{
   defaults = {
+    sorting_strategy = "descending",
+    layout_config = {
+            vertical = {
+                width = 1,
+                height = 0.3
+            }
+        },
     mappings = {
       i = { -- bindings in insert mode
         ["<C-h>"] = "which_key", -- show which_key for telescope
@@ -24,8 +31,12 @@ telescope.setup{
           override_generic_sorter = true, -- override telescope's sorter
           override_file_sorter = true, -- override telescope's file sorter
           case_mode = "smart_case" -- "ignore_case", "respect_case", or "smart_case" (ingores unless upper case in query)
+      },
+      ['ui-select'] = {
+        require('telescope.themes').get_dropdown()
       }
   }
 }
 
 telescope.load_extension('fzf')
+telescope.load_extension('ui-select')

@@ -12,7 +12,7 @@ configs.setup{
 		additional_vim_regex_highlighting = false -- also enable vim's regex-based highlighting
 	},
 	indent = {
-		enable = false, -- enable treesitters indentation
+		enable = true, -- enable treesitters indentation
 		disable = { "" } -- disable for specific languages
 	},
     rainbow = {
